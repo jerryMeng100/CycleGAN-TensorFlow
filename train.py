@@ -6,10 +6,13 @@ import os
 import logging
 from utils import ImagePool
 
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
+
 FLAGS = tf.flags.FLAGS
 
 tf.flags.DEFINE_integer('batch_size', 1, 'batch size, default: 1')
-tf.flags.DEFINE_integer('image_size', 256, 'image size, default: 256')
+tf.flags.DEFINE_integer('image_size', 128, 'image size, default: 128')
 tf.flags.DEFINE_bool('use_lsgan', True,
                      'use lsgan (mean squared error) or cross entropy loss, default: True')
 tf.flags.DEFINE_string('norm', 'instance',
@@ -102,12 +105,12 @@ def train():
         train_writer.add_summary(summary, step)
         train_writer.flush()
 
-        if step % 100 == 0:
-          logging.info('-----------Step %d:-------------' % step)
-          logging.info('  G_loss   : {}'.format(G_loss_val))
-          logging.info('  D_Y_loss : {}'.format(D_Y_loss_val))
-          logging.info('  F_loss   : {}'.format(F_loss_val))
-          logging.info('  D_X_loss : {}'.format(D_X_loss_val))
+        #if step % 100 == 0:
+        logging.info('-----------Step %d:-------------' % step)
+        logging.info('  G_loss   : {}'.format(G_loss_val))
+        logging.info('  D_Y_loss : {}'.format(D_Y_loss_val))
+        logging.info('  F_loss   : {}'.format(F_loss_val))
+        logging.info('  D_X_loss : {}'.format(D_X_loss_val))
 
         if step % 10000 == 0:
           save_path = saver.save(sess, checkpoints_dir + "/model.ckpt", global_step=step)
