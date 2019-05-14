@@ -1,3 +1,15 @@
+# Sketch<>Face
+Converting sketches to faces and vice versa.  
+Datasets: 
+Faces: NVIDIA FFHQ dataset: https://github.com/NVlabs/ffhq-dataset
+Sketches: CUHK Face Sketch Database: http://mmlab.ie.cuhk.edu.hk/archive/facesketch.html
+
+
+
+
+Original readme VVV
+
+
 # CycleGAN-TensorFlow
 An implementation of CycleGan using TensorFlow (work in progress).
 
