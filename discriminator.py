@@ -1,7 +1,7 @@
 import tensorflow as tf
 import ops
 
-class Discriminator70x70:
+class Discriminator:
   def __init__(self, name, is_training, norm='instance', use_sigmoid=False):
     self.name = name
     self.is_training = is_training
@@ -38,7 +38,7 @@ class Discriminator70x70:
 
     return output
 
-class Discriminator:
+class Discriminator16x16:
   def __init__(self, name, is_training, norm='instance', use_sigmoid=False):
     self.name = name
     self.is_training = is_training
